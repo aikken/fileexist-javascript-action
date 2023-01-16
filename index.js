@@ -5,14 +5,15 @@ const fs = require('fs');
 try {
 
   const jsonFolder = core.getInput('jsonFolder');
-  const rootAssetsFolder = core.getInput('rootAssetsFolder');
+  const rootFolder = process.env.GITHUB_WORKSPACE
+  //core.getInput('rootAssetsFolder');
   console.log(`jsonFolder ${jsonFolder}!`);
-  console.log(`rootAssetsFolder ${rootAssetsFolder}!`);
+  console.log(`rootFolder ${rootFolder}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
 
-  const directoryPath = path.join(__dirname, jsonFolder);
+  const directoryPath = path.join(rootFolder, jsonFolder);
   //passsing directoryPath and callback function
   fs.readdir(directoryPath, function (err, files) {
       //handling error
@@ -31,7 +32,7 @@ try {
           for(let i=0;i<jsonFile[0].files.length;i++){
             console.log(jsonFile[0].files[i].path);
             try {
-              if (fs.existsSync(jsonFile[0].files[i].path)) {
+              if (fs.existsSync(path.join(rootFolder,jsonFile[0].files[i].path))) {
                 console.log("File found " + jsonFile[0].files[i].path + " referenced by file : " + file);
               }
             } catch(err) {
