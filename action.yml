@@ -1,0 +1,17 @@
+name: 'File exist from json list'
+description: 'Check if files exists on source, list of files is retrieved from multiple json files'
+inputs:
+  jsonFolder:  
+    description: 'JSON Files folder'
+    required: true
+    default: ''
+  rootAssetsFolder:  
+    description: 'root path of assets folder'
+    required: true
+    default: ''
+outputs:
+  time: # id of output
+    description: 'The time'
+runs:
+  using: 'node16'
+  main: 'index.js'
