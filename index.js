@@ -13,7 +13,7 @@ try {
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
 
-  const directoryPath = path.join(rootFolder, jsonFolder);
+  const directoryPath = path.join(jsonFolder);
   core.info(`directoryPath ${directoryPath}!`);
   //passsing directoryPath and callback function
   fs.readdir(directoryPath, function (err, files) {
