@@ -5,6 +5,10 @@ inputs:
     description: 'JSON Files relative path folder'
     required: true
     default: ''
+  assetsFolder:  
+    description: 'path to assets folder (from workspace to assets)'
+    required: true
+    default: 'app/kidkoder/dist'
   workspaceFolder:  
     description: 'Repo Folder get from github.workspace'
     required: true

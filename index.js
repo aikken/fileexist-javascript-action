@@ -6,9 +6,11 @@ var readdir = require('readdir-absolute');
 try {
 
   const jsonFolder = core.getInput('jsonFolder');
+  const assetsFolder = core.getInput('assetsFolder');
   const workspaceFolder = core.getInput('workspaceFolder');
   //core.getInput('rootAssetsFolder');
   core.info(`jsonFolder ${jsonFolder}!`);
+  core.info(`assetsFolder ${assetsFolder}!`);
   core.info(`workspaceFolder ${workspaceFolder}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
@@ -33,12 +35,11 @@ try {
         core.info(jsonFile[0].files.length);
 
         for (let i = 0; i < jsonFile[0].files.length; i++) {
-          core.info(jsonFile[0].files[i].path);
-          try {
-            if (fs.existsSync(path.join(workspaceFolder, jsonFile[0].files[i].path))) {
-              core.info("File found " + jsonFile[0].files[i].path + " referenced by file : " + file);
-            }
-          } catch (err) {
+          core.info(path.join(workspaceFolder, assetsFolder, jsonFile[0].files[i].path));
+
+          if (fs.existsSync(path.join(workspaceFolder, assetsFolder, jsonFile[0].files[i].path))) {
+            core.info("File found " + jsonFile[0].files[i].path + " referenced by file : " + file);
+          } else {
             core.setFailed("File not found : " + jsonFile[0].files[i].path + " referenced by file : " + file);
           }
         }
