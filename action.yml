@@ -2,7 +2,11 @@ name: 'File exist from json list'
 description: 'Check if files exists on source, list of files is retrieved from multiple json files'
 inputs:
   jsonFolder:  
-    description: 'JSON Files folder'
+    description: 'JSON Files relative path folder'
+    required: true
+    default: ''
+  workspaceFolder:  
+    description: 'Repo Folder get from github.workspace'
     required: true
     default: ''
 outputs:
