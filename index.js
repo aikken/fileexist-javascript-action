@@ -26,7 +26,7 @@ try {
     files.forEach(function (file) {
       // Do whatever you want to do with the file
       core.info(file);
-      if (file.split('.').length > 1) {
+      if (file.split('.').length > 2) {
         let rawdata = fs.readFileSync(file);
         let jsonFile = JSON.parse(rawdata);
 
