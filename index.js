@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const path = require('path');
 const fs = require('fs');
+var readdir = require('readdir-absolute');
 try {
 
   const jsonFolder = core.getInput('jsonFolder');
@@ -16,7 +17,7 @@ try {
   //const directoryPath = path.join(jsonFolder);
   //core.info(`directoryPath ${directoryPath}!`);
   //passsing directoryPath and callback function
-  fs.readdir(path.resolve(jsonFolder), function (err, files) {
+  readdir(path.resolve(jsonFolder), function (err, files) {
       //handling error
       if (err) {
           return core.info('Unable to scan directory: ' + err);

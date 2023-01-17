@@ -21,6 +21,7 @@
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
     "fs": "^0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "readdir-absolute": "^1.0.1"
   }
 }
