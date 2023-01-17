@@ -13,10 +13,10 @@ try {
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
 
-  const directoryPath = path.join(jsonFolder);
-  core.info(`directoryPath ${directoryPath}!`);
+  //const directoryPath = path.join(jsonFolder);
+  //core.info(`directoryPath ${directoryPath}!`);
   //passsing directoryPath and callback function
-  fs.readdir(directoryPath, function (err, files) {
+  fs.readdir(jsonFolder, function (err, files) {
       //handling error
       if (err) {
           return core.info('Unable to scan directory: ' + err);
