@@ -16,7 +16,7 @@ try {
   //const directoryPath = path.join(jsonFolder);
   //core.info(`directoryPath ${directoryPath}!`);
   //passsing directoryPath and callback function
-  fs.readdir(jsonFolder, function (err, files) {
+  fs.readdir(path.resolve(jsonFolder), function (err, files) {
       //handling error
       if (err) {
           return core.info('Unable to scan directory: ' + err);
