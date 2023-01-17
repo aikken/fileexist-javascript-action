@@ -14,6 +14,7 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
 
   const directoryPath = path.join(rootFolder, jsonFolder);
+  core.info(`directoryPath ${directoryPath}!`);
   //passsing directoryPath and callback function
   fs.readdir(directoryPath, function (err, files) {
       //handling error

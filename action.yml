@@ -5,10 +5,6 @@ inputs:
     description: 'JSON Files folder'
     required: true
     default: ''
-  rootAssetsFolder:  
-    description: 'root path of assets folder'
-    required: true
-    default: ''
 outputs:
   time: # id of output
     description: 'The time'
