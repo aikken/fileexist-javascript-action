@@ -9806,7 +9806,7 @@ try {
   const workspaceFolder = core.getInput('workspaceFolder');
   //core.getInput('rootAssetsFolder');
   core.info(`jsonFolder ${jsonFolder}!`);
-  core.info(`rootFolder ${rootFolder}!`);
+  core.info(`workspaceFolder ${workspaceFolder}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
